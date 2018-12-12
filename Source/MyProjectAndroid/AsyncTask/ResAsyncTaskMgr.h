@@ -18,6 +18,7 @@ class FCookAsyncTask;
 
 class FDRAsyncTaskManager : FTickableGameObject
 {
+
 public:
 	static FDRAsyncTaskManager &Get();
 
@@ -33,21 +34,6 @@ public:
 
 	template<typename TTask>
 	void QueueTask(FAsyncTask<TTask> *Task);
-
-	template<> void QueueTask<FResLoadAsyncTask>(FAsyncTask<FResLoadAsyncTask> *pTask)
-	{
-		QueueLoadTasks.Add(pTask);
-	}
-
-	template<> void QueueTask<FUploadAsyncTask>(FAsyncTask<FUploadAsyncTask> *pTask)
-	{
-		QueueUploadTasks.Add(pTask);
-	}
-
-	template<> void QueueTask<FCookAsyncTask>(FAsyncTask<FCookAsyncTask> *pTask)
-	{
-		QueueCookTasks.Add(pTask);
-	}
 
 	void Clear();
 	void ClearDownload();
@@ -130,46 +116,6 @@ public:
 	template<typename TTask>
 	void ExecuteTask(FAsyncTask<TTask> *pTask);
 
-	template<> void ExecuteTask<FProtocalTask>(FAsyncTask<FProtocalTask> *pTask)
-	{
-		if (pTask->IsIdle() && !pTask->GetTask().bWorking)
-		{
-			pTask->GetTask().bWorking = true;
-
-			if (pTask->GetTask().IsNeedAsyncThread())
-			{
-				pTask->StartBackgroundTask();
-			}
-			else
-			{
-				pTask->GetTask().DoWork();
-			}
-
-			ProtocalTasks.Add(pTask);
-		}
-	}
-
-
-	template<> void ExecuteTask<FDownloadAsyncTask>(FAsyncTask<FDownloadAsyncTask> *pTask)
-	{
-		if (pTask->IsIdle() && !pTask->GetTask().bWorking)
-		{
-			pTask->GetTask().bWorking = true;
-
-			if (pTask->GetTask().IsNeedAsyncThread())
-			{
-				pTask->StartBackgroundTask();
-			}
-			else
-			{
-				pTask->GetTask().DoWork();
-			}
-
-			DownloadTasks.Add(pTask);
-		}
-	}
-
-
 protected:
 	TArray<FAsyncTask<FResLoadAsyncTask> *>		QueueLoadTasks;
 	TArray<FAsyncTask<FUploadAsyncTask> *>		QueueUploadTasks;
@@ -177,4 +123,58 @@ protected:
 	TArray<FAsyncTask<FProtocalTask> *>			ProtocalTasks;
 	TArray<FAsyncTask<FDownloadAsyncTask> *>	DownloadTasks;
 };
+
+template<> void FDRAsyncTaskManager::QueueTask<FResLoadAsyncTask>(FAsyncTask<FResLoadAsyncTask> *pTask)
+{
+	QueueLoadTasks.Add(pTask);
+}
+
+template<> void FDRAsyncTaskManager::QueueTask<FUploadAsyncTask>(FAsyncTask<FUploadAsyncTask> *pTask)
+{
+	QueueUploadTasks.Add(pTask);
+}
+
+template<> void FDRAsyncTaskManager::QueueTask<FCookAsyncTask>(FAsyncTask<FCookAsyncTask> *pTask)
+{
+	QueueCookTasks.Add(pTask);
+}
+
+template<> void FDRAsyncTaskManager::ExecuteTask<FProtocalTask>(FAsyncTask<FProtocalTask> *pTask)
+{
+	if (pTask->IsIdle() && !pTask->GetTask().bWorking)
+	{
+		pTask->GetTask().bWorking = true;
+
+		if (pTask->GetTask().IsNeedAsyncThread())
+		{
+			pTask->StartBackgroundTask();
+		}
+		else
+		{
+			pTask->GetTask().DoWork();
+		}
+
+		ProtocalTasks.Add(pTask);
+	}
+}
+
+template<> void FDRAsyncTaskManager::ExecuteTask<FDownloadAsyncTask>(FAsyncTask<FDownloadAsyncTask> *pTask)
+{
+	if (pTask->IsIdle() && !pTask->GetTask().bWorking)
+	{
+		pTask->GetTask().bWorking = true;
+
+		if (pTask->GetTask().IsNeedAsyncThread())
+		{
+			pTask->StartBackgroundTask();
+		}
+		else
+		{
+			pTask->GetTask().DoWork();
+		}
+
+		DownloadTasks.Add(pTask);
+	}
+}
+
 

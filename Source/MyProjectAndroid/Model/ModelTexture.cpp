@@ -105,7 +105,7 @@ UTexture2D *FModelTexture::GetTexture()
 	}
 	else
 	{
-		if (Source.CompressedImages.Num() > 0)
+		/*if (Source.CompressedImages.Num() > 0)
 		{
 			FCompressedImage2D &CompressedImage = Source.CompressedImages[0];
 
@@ -159,7 +159,7 @@ UTexture2D *FModelTexture::GetTexture()
 			Mip.BulkData.Unlock();
 
 			Texture->UpdateResource();
-		}
+		}*/
 
 		TexPtr = Texture;
 	}
@@ -185,70 +185,70 @@ void FTextureSourceInfo::Serialize(FArchive &Ar, uint32 Ver)
 		Ar << bUseLegacyGamma;
 	}
 
-	if (Ar.IsSaving())
-	{
-		uint8 ByteFormat = (uint8)SourceFormat;
-		Ar << ByteFormat;
-
-		ByteFormat = (uint8)CompressionSettings;
-		Ar << ByteFormat;
-
-		int32 NumBytes = Data.Num();
-		Ar << NumBytes;
-		Ar.Serialize(Data.GetData(), NumBytes * sizeof(uint8));
-
-		int32 NumImages = CompressedImages.Num();
-		Ar << NumImages;
-
-		for (int32 i = 0; i < CompressedImages.Num(); ++i)
-		{
-			FCompressedImage2D &Image = CompressedImages[i];
-			Ar << Image.SizeX;
-			Ar << Image.SizeY;
-			Ar << Image.PixelFormat;
-
-			NumBytes = Image.RawData.Num();
-			Ar << NumBytes;
-			Ar.Serialize(Image.RawData.GetData(), Image.RawData.Num());
-		}
-	}
-	else if (Ar.IsLoading())
-	{
-		uint8 ByteFormat = 0;
-		Ar << ByteFormat;
-		SourceFormat = (ETextureSourceFormat)ByteFormat;
-
-		Ar << ByteFormat;
-		CompressionSettings = (TextureCompressionSettings)ByteFormat;
-
-#if		UE_SERVER || UE_EDITOR //raw texture data only use in server used for ouput png file(iray image format) .
-		int32 NumBytes = 0;
-		Ar << NumBytes;
-		Data.SetNum(NumBytes);
-		Ar.Serialize(Data.GetData(), NumBytes * sizeof(uint8));
-#else
-		int32 NumBytes = 0;
-		Ar << NumBytes;
-		Ar.Seek(Ar.Tell() + NumBytes);
-#endif
-
-		int32 NumImages = 0;
-		Ar << NumImages;
-		CompressedImages.SetNum(NumImages);
-
-		for (int32 i = 0; i < CompressedImages.Num(); ++i)
-		{
-			FCompressedImage2D &Image = CompressedImages[i];
-			Ar << Image.SizeX;
-			Ar << Image.SizeY;
-			Ar << Image.PixelFormat;
-
-			NumBytes = 0;
-			Ar << NumBytes;
-			Image.RawData.SetNum(NumBytes);
-			Ar.Serialize(Image.RawData.GetData(), NumBytes);
-		}
-	}
+//	if (Ar.IsSaving())
+//	{
+//		uint8 ByteFormat = (uint8)SourceFormat;
+//		Ar << ByteFormat;
+//
+//		ByteFormat = (uint8)CompressionSettings;
+//		Ar << ByteFormat;
+//
+//		int32 NumBytes = Data.Num();
+//		Ar << NumBytes;
+//		Ar.Serialize(Data.GetData(), NumBytes * sizeof(uint8));
+//
+//		int32 NumImages = CompressedImages.Num();
+//		Ar << NumImages;
+//
+//		for (int32 i = 0; i < CompressedImages.Num(); ++i)
+//		{
+//			FCompressedImage2D &Image = CompressedImages[i];
+//			Ar << Image.SizeX;
+//			Ar << Image.SizeY;
+//			Ar << Image.PixelFormat;
+//
+//			NumBytes = Image.RawData.Num();
+//			Ar << NumBytes;
+//			Ar.Serialize(Image.RawData.GetData(), Image.RawData.Num());
+//		}
+//	}
+//	else if (Ar.IsLoading())
+//	{
+//		uint8 ByteFormat = 0;
+//		Ar << ByteFormat;
+//		SourceFormat = (ETextureSourceFormat)ByteFormat;
+//
+//		Ar << ByteFormat;
+//		CompressionSettings = (TextureCompressionSettings)ByteFormat;
+//
+//#if		UE_SERVER || UE_EDITOR //raw texture data only use in server used for ouput png file(iray image format) .
+//		int32 NumBytes = 0;
+//		Ar << NumBytes;
+//		Data.SetNum(NumBytes);
+//		Ar.Serialize(Data.GetData(), NumBytes * sizeof(uint8));
+//#else
+//		int32 NumBytes = 0;
+//		Ar << NumBytes;
+//		Ar.Seek(Ar.Tell() + NumBytes);
+//#endif
+//
+//		int32 NumImages = 0;
+//		Ar << NumImages;
+//		CompressedImages.SetNum(NumImages);
+//
+//		for (int32 i = 0; i < CompressedImages.Num(); ++i)
+//		{
+//			FCompressedImage2D &Image = CompressedImages[i];
+//			Ar << Image.SizeX;
+//			Ar << Image.SizeY;
+//			Ar << Image.PixelFormat;
+//
+//			NumBytes = 0;
+//			Ar << NumBytes;
+//			Image.RawData.SetNum(NumBytes);
+//			Ar.Serialize(Image.RawData.GetData(), NumBytes);
+//		}
+//	}
 }
 
 void FModelTexture::Serialize(FArchive &Ar, uint32 Ver)
@@ -261,25 +261,25 @@ void FModelTexture::Serialize(FArchive &Ar, uint32 Ver)
 
 void FModelTexture::Decompress()
 {
-	if (Source.Data.Num() == 0 && Source.CompressedImages.Num() > 0)
-	{
-		FCompressedImage2D &CompressedImage = Source.CompressedImages[0];
-		int32 szData = CompressedImage.SizeX*CompressedImage.SizeY * 4;
-		Source.Data.SetNum(szData);
-		
-		unsigned long *RGBAImage = (unsigned long *)Source.Data.GetData();
-		EPixelFormat PixelFormat = (EPixelFormat)CompressedImage.PixelFormat;
+	//if (Source.Data.Num() == 0 && Source.CompressedImages.Num() > 0)
+	//{
+	//	FCompressedImage2D &CompressedImage = Source.CompressedImages[0];
+	//	int32 szData = CompressedImage.SizeX*CompressedImage.SizeY * 4;
+	//	Source.Data.SetNum(szData);
+	//	
+	//	unsigned long *RGBAImage = (unsigned long *)Source.Data.GetData();
+	//	EPixelFormat PixelFormat = (EPixelFormat)CompressedImage.PixelFormat;
 
-		if (PixelFormat == PF_DXT1)
-		{
-			BlockDecompressImageDXT1(CompressedImage.SizeX, CompressedImage.SizeY, (unsigned char *)CompressedImage.RawData.GetData(), RGBAImage);
-		}
-		else if(PixelFormat==PF_DXT5)
-		{
-			BlockDecompressImageDXT5(CompressedImage.SizeX, CompressedImage.SizeY, (unsigned char *)CompressedImage.RawData.GetData(), RGBAImage);
-		}
-		//UTextureImporter::ExportTGA(CompressedImage.SizeX, CompressedImage.SizeY, (uint8 *)RGBAImage, false, TEXT("f:/123.tga"));
-	}
+	//	if (PixelFormat == PF_DXT1)
+	//	{
+	//		BlockDecompressImageDXT1(CompressedImage.SizeX, CompressedImage.SizeY, (unsigned char *)CompressedImage.RawData.GetData(), RGBAImage);
+	//	}
+	//	else if(PixelFormat==PF_DXT5)
+	//	{
+	//		BlockDecompressImageDXT5(CompressedImage.SizeX, CompressedImage.SizeY, (unsigned char *)CompressedImage.RawData.GetData(), RGBAImage);
+	//	}
+	//	//UTextureImporter::ExportTGA(CompressedImage.SizeX, CompressedImage.SizeY, (uint8 *)RGBAImage, false, TEXT("f:/123.tga"));
+	//}
 }
 
 unsigned long FModelTexture::PackRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a)

@@ -1,6 +1,6 @@
 ﻿
 #include "SurfaceFile.h"
-#include "ModelCompress.h"
+//#include "ModelCompress.h"
 #include "ResourceMgr.h"
 #include "Materials/MaterialInstanceDynamic.h"
 
@@ -313,7 +313,7 @@ void USurfaceFile::SetType(EMaterialType InType)
 {
 	if (m_MaterialInfo != NULL && m_MaterialInfo->GetType()!=InType)
 	{
-		SAFE_DELETE(m_MaterialInfo);
+		//SAFE_DELETE(m_MaterialInfo);
 	}
 
 	if (!m_MaterialInfo)
@@ -379,7 +379,7 @@ void USurfaceFile::SetSurface(FModelMaterial *Material, TArray<FModelTexture *> 
 
 		Material->CopyOverrideParametersTo(newMtrlUE4);
 
-		SAFE_DELETE(Material);
+		//SAFE_DELETE(Material);
 		m_MaterialInfo = newMtrlUE4;
 	}
 	else
@@ -444,10 +444,10 @@ void USurfaceFile::CheckResource()
 	for (int32 i = 0; i < m_Textures.Num(); ++i)
 	{
 		FModelTexture *tex = m_Textures[i];
-		if (tex && tex->Source.CompressedImages.Num() == 0)
+		/*if (tex && tex->Source.CompressedImages.Num() == 0)
 		{
 			CompressUtil::CompressTexture(tex);
-		}
+		}*/
 	}
 	Super::CheckResource();
 }

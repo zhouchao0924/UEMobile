@@ -306,9 +306,9 @@ template <class Type> int Array<Type>::IndexOf(Type t)
 //****************************************************
 //** VECMATH.H
 //****************************************************
-#ifndef PLUGIN_3DSMAX
-#define PI (3.1415926535897932384626433832795f)
-#endif
+//#ifndef PLUGIN_3DSMAX
+//#define PI (3.1415926535897932384626433832795f)
+//#endif
 
 #define DEG2RAD (PI / 180.0f)
 #define RAD2DEG (180.0f / PI)

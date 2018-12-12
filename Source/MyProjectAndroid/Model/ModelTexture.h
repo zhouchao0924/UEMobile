@@ -1,7 +1,7 @@
 
 #pragma once
-
-#include "TextureCompressorModule.h"
+#include "Engine/Texture2D.h"
+//#include "TextureCompressorModule.h"
 
 enum ETexSlot
 {
@@ -29,7 +29,7 @@ public:
 	void Reset()
 	{
 		Data.Reset();
-		CompressionSettings = TC_Default;
+		//CompressionSettings = TC_Default;
 		SizeX = SizeY = 0;
 		CompressionNoAlpha = false;
 		bUseLegacyGamma = false;
@@ -37,7 +37,7 @@ public:
 		SRGB = true;
 	}
 
-	void Init(int32 Width, int32 Height, ETextureSourceFormat InFormat, bool bSRGB, const uint8 *InData, int32 NumBytes, TextureCompressionSettings = TC_Default)
+	/*void Init(int32 Width, int32 Height, ETextureSourceFormat InFormat, bool bSRGB, const uint8 *InData, int32 NumBytes, TextureCompressionSettings = TC_Default)
 	{
 		SizeX = Width;
 		SizeY = Height;
@@ -45,15 +45,22 @@ public:
 		SRGB = bSRGB;
 		Data.SetNum(NumBytes);
 		FMemory::Memcpy(Data.GetData(), InData, NumBytes);
+	}*/
+	void Init(int32 Width, int32 Height, bool bSRGB, const uint8 *InData, int32 NumBytes)
+	{
+		SizeX = Width;
+		SizeY = Height;
+		SRGB = bSRGB;
+		Data.SetNum(NumBytes);
+		FMemory::Memcpy(Data.GetData(), InData, NumBytes);
 	}
-
 	void Serialize(FArchive &Ar, uint32 Ver);
 
 	void SetNum(int32 Num) { Data.SetNum(Num); }
 
-	TArray<FCompressedImage2D>	CompressedImages;
-	ETextureSourceFormat		SourceFormat;
-	TextureCompressionSettings	CompressionSettings;
+	//TArray<FCompressedImage2D>	CompressedImages;
+	//ETextureSourceFormat		SourceFormat;
+	//TextureCompressionSettings	CompressionSettings;
 	int32						SizeX, SizeY;
 	TArray<uint8>				Data;
 	bool						SRGB;

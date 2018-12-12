@@ -15,10 +15,10 @@ public class MyProjectAndroid : ModuleRules
                 "Engine",
                 "InputCore" ,
                 "VaRestPlugin" ,
-                "TextureCompressor",
+                //"TextureCompressor",
                 "ProceduralMeshComponent",
                 "ImageCore",
-                "TargetPlatform",
+                //"TargetPlatform",
                 "FBX",
                 "Json",
                 "JsonUtilities",
@@ -39,7 +39,7 @@ public class MyProjectAndroid : ModuleRules
          );
 
         // Uncomment if you are using Slate UI
-        PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "VHACD" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore"});
 		
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");

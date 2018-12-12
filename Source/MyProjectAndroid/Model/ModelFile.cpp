@@ -1,6 +1,6 @@
 ﻿
 #include "ModelFile.h"
-#include "ModelCompress.h"
+//#include "ModelCompress.h"
 #include "ResourceMgr.h"
 #include "Serialization/MemoryReader.h"
 #include "Serialization/MemoryWriter.h"
@@ -289,7 +289,7 @@ void UModelFile::Clean()
 
 	for (int32 i = 0; i < m_Materials.Num(); ++i)
 	{
-		SAFE_DELETE(m_Materials[i]);
+		//SAFE_DELETE(m_Materials[i]);
 	}
 
 	for (int32 i = 0; i < m_Textures.Num(); ++i)
@@ -316,7 +316,7 @@ void  UModelFile::Compress()
 		{
 			FModel *model = m_Models[i];
 			check(model != NULL);
-			CompressUtil::CompressModel(model);
+			//CompressUtil::CompressModel(model);
 		}
 		m_Header.bCompressed = 1;
 	}
@@ -426,10 +426,10 @@ void UModelFile::CheckResource()
 	for (int32 i = 0; i < m_Textures.Num(); ++i)
 	{
 		FModelTexture *tex = m_Textures[i];
-		if (tex && tex->Source.CompressedImages.Num() == 0)
+		/*if (tex && tex->Source.CompressedImages.Num() == 0)
 		{
 			CompressUtil::CompressTexture(tex);
-		}
+		}*/
 	}
 }
 
@@ -545,7 +545,7 @@ bool UModelFile::SetMaterialSlotByUE4Material(int32 MaterialIndex, UMaterialInte
 	FModelMaterial *oldMaterial = m_Materials[MaterialIndex];
 	if (oldMaterial)
 	{
-		delete oldMaterial;
+		//delete oldMaterial;
 	}
 
 	FModelMaterialUE4 *newMaterial = new FModelMaterialUE4();
@@ -574,7 +574,7 @@ bool UModelFile::SetMaterialSlotBySurface(int32 MaterialIndex, USurfaceFile *Sur
 	FModelMaterial *oldMaterial = m_Materials[MaterialIndex];
 	if (oldMaterial)
 	{
-		delete oldMaterial;
+		//delete oldMaterial;
 	}
 
 	FModelMaterialRef *newMaterial = new FModelMaterialRef();
@@ -926,7 +926,7 @@ void UModelFile::CloneModel(UModelFile *OtherModel)
 				FModelMaterial *delMtrl = m_Materials.Pop();
 				if (delMtrl)
 				{
-					delete delMtrl;
+					//delete delMtrl;
 				}
 			}
 

@@ -353,6 +353,6 @@ void UAsyncHttpFile::SaveToFile()
 
 FString UAsyncHttpFile::GetDstFilePath()
 {
-	return  FPaths::GameSavedDir() / "Download/Resources/" + FileName;
+	return  FPaths::ProjectSavedDir() / "Download/Resources/" + FileName;
 }
 

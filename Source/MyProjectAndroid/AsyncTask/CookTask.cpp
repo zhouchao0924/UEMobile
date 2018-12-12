@@ -3,7 +3,7 @@
 #include "HttpModule.h"
 #include "ModelFile.h"
 #include "Interfaces/IHttpRequest.h"
-#include "ConvexHullPhysicBody.h"
+//#include "ConvexHullPhysicBody.h"
 
 //////////////////////////////////////////////////////////////////////////
 FCookAsyncTask::FCookAsyncTask(UResource *InResource, const FCookArgs &InArgs)
@@ -40,7 +40,7 @@ void FCookAsyncTask::CookModelFile(UModelFile *ModelFile)
 	{
 		if (CookArgs.bCheckCollision && !ModelFile->IsCookedPhysic())
 		{
-			GenerateModelFileConvexHull(ModelFile, 0.8f, 16, false);
+			//GenerateModelFileConvexHull(ModelFile, 0.8f, 16, false);
 		}
 		
 		if (CookArgs.bAdjustCenter)

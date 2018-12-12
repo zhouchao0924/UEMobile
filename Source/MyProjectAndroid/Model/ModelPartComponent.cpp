@@ -154,12 +154,12 @@ void UModelPartComponent::UpdatePhysics(FConvexAggGeom &AggGeom)
 		// Also we want cooked data for this
 		ProcMeshBodySetup->bHasCookedCollisionData = true;
 		
-#if WITH_RUNTIME_PHYSICS_COOKING || WITH_EDITOR
-		// Clear current mesh data
-		ProcMeshBodySetup->InvalidatePhysicsData();
-		// Create new mesh data
-		ProcMeshBodySetup->CreatePhysicsMeshes();
-#endif // WITH_RUNTIME_PHYSICS_COOKING || WITH_EDITOR
+//#if WITH_RUNTIME_PHYSICS_COOKING || WITH_EDITOR
+//		// Clear current mesh data
+//		ProcMeshBodySetup->InvalidatePhysicsData();
+//		// Create new mesh data
+//		ProcMeshBodySetup->CreatePhysicsMeshes();
+//#endif // WITH_RUNTIME_PHYSICS_COOKING || WITH_EDITOR
 
 		// Create new instance state if desired
 		if (bCreatePhysState)

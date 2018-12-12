@@ -5,6 +5,7 @@
 #include "Materials/MaterialInterface.h"
 #include "ResourceItem.h"
 #include "StandardMaterialCollection.h"
+#include "UpdateFileSystemTask.h"
 #include "ResourceMgr.generated.h"
 
 class UModelFile;

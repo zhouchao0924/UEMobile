@@ -710,14 +710,14 @@ void UResourceMgr::FinishUpdateFile()
 { 
 	FinishUpdateFileSystemCouter.Increment(); 
 	UpdateFileSystemTask = NULL;
-#if BUILD_WEBSERVER && UE_SERVER
-	AIrayGameMode *MyGame = Cast<AIrayGameMode>(GetWorld()->GetAuthGameMode());
-	if (MyGame)
-	{
-		//MyGame->BuildLogToServer("",104,0,TEXT("加载共享资源成功"),true);
-		MyGame->OnUpdateFileEnd();
-	}
-#endif
+//#if BUILD_WEBSERVER && UE_SERVER
+//	AIrayGameMode *MyGame = Cast<AIrayGameMode>(GetWorld()->GetAuthGameMode());
+//	if (MyGame)
+//	{
+//		//MyGame->BuildLogToServer("",104,0,TEXT("加载共享资源成功"),true);
+//		MyGame->OnUpdateFileEnd();
+//	}
+//#endif
 }
 
 void UResourceMgr::AbandonUpdateFile()

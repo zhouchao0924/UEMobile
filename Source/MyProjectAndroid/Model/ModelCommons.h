@@ -5,7 +5,7 @@
 #include "ModelTexture.h"
 #include "ModelMaterial.h"
 #include "ResourceItem.h"
-#include "TextureCompressorModule.h"
+//#include "TextureCompressorModule.h"
 #include "ProceduralMeshComponent.h"
 
 #define SAFE_DELETE(p)     do { if(p) { delete (p); (p) = nullptr; } } while(0)
