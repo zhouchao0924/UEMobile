@@ -1788,38 +1788,49 @@
 "../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/CommonUI/Loading.uasset" 1787
 "../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/GameControllerClass/MobileGameInstance.uasset" 1788
 "../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/GetFunction.uasset" 1789
-"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/BuildControllerClass/Area.uasset" 1790
-"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/BuildControllerClass/Wall.uasset" 1791
-"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/GameControllerClass/MobileGamePawn.uasset" 1792
-"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/ModelControllerClass/MXModel.uasset" 1793
-"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/CommonUI/Toast.uasset" 1794
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/3DModeLevelImages/fanhui-128.uasset" 1795
-"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/3DModeLevelUI/3DMain.uasset" 1796
-"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/GameModeClass/MobileGameMode.uasset" 1797
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/3DModeLevel_BuiltData.uasset" 1798
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/3DModeLevel.umap" 1799
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/SolutionLevel_BuiltData.uasset" 1800
-"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 1801
-"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 1802
-"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/CommonUI/PageSkip.uasset" 1803
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/SolutionLevelImages/loginout.uasset" 1804
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/SolutionLevelImages/logo_solutionlevel.uasset" 1805
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/SolutionLevelImages/tabbtnbackground_solutionlevel.uasset" 1806
-"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/SolutionLevelUI/SolutionItem.uasset" 1807
-"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/SolutionLevelUI/Main.uasset" 1808
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/SolutionLevel.umap" 1809
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/StartLevel_BuiltData.uasset" 1810
-"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 1811
-"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 1812
-"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 1813
-"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 1814
-"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 1815
-"../../../Engine/Content/EngineFonts/Roboto.uasset" 1816
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_inputboder.uasset" 1817
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_loginbtn.uasset" 1818
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_mobile.uasset" 1819
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_password.uasset" 1820
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/loginBackGround.uasset" 1821
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/LoginBoxBackground.uasset" 1822
-"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/StartLevelUI/Login.uasset" 1823
-"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/StartLevel.umap" 1824
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/AreaFunction.uasset" 1790
+"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/SavedStruct/AreaSaveStructure/DrawAreaConfig.uasset" 1791
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/SG_Line.uasset" 1792
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/SG_Plane.uasset" 1793
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/SG_Triangle.uasset" 1794
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/SolidGeometry.uasset" 1795
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/LineIndex.uasset" 1796
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/Triangle2D.uasset" 1797
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/LineSegment.uasset" 1798
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/PP_ShellMethod.uasset" 1799
+"../../../../../Unreal Projects/MyProjectAndroid/Content/FunctionLibrary/GetFunction/PolygonProcessing.uasset" 1800
+"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/BuildControllerClass/Area.uasset" 1801
+"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/BuildControllerClass/Wall.uasset" 1802
+"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/GameControllerClass/MobileGamePawn.uasset" 1803
+"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/ModelControllerClass/MXModel.uasset" 1804
+"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/CommonUI/Toast.uasset" 1805
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/3DModeLevelImages/fanhui-128.uasset" 1806
+"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/3DModeLevelUI/3DMain.uasset" 1807
+"../../../../../Unreal Projects/MyProjectAndroid/Content/GameBasic/GameModeClass/MobileGameMode.uasset" 1808
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/3DModeLevel_BuiltData.uasset" 1809
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/3DModeLevel.umap" 1810
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/SolutionLevel_BuiltData.uasset" 1811
+"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 1812
+"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 1813
+"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/CommonUI/PageSkip.uasset" 1814
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/SolutionLevelImages/loginout.uasset" 1815
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/SolutionLevelImages/logo_solutionlevel.uasset" 1816
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/SolutionLevelImages/tabbtnbackground_solutionlevel.uasset" 1817
+"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/SolutionLevelUI/SolutionItem.uasset" 1818
+"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/SolutionLevelUI/Main.uasset" 1819
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/SolutionLevel.umap" 1820
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/StartLevel_BuiltData.uasset" 1821
+"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 1822
+"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 1823
+"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 1824
+"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 1825
+"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 1826
+"../../../Engine/Content/EngineFonts/Roboto.uasset" 1827
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_inputboder.uasset" 1828
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_loginbtn.uasset" 1829
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_mobile.uasset" 1830
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/ic_password.uasset" 1831
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/loginBackGround.uasset" 1832
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Images/StartLevelImages/LoginBoxBackground.uasset" 1833
+"../../../../../Unreal Projects/MyProjectAndroid/Content/UMG/StartLevelUI/Login.uasset" 1834
+"../../../../../Unreal Projects/MyProjectAndroid/Content/Maps/StartLevel.umap" 1835
